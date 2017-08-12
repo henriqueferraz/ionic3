@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Feed</ion-title>
+    <ion-title>{{objeto_feed.titulo}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,34 +17,34 @@
   <ion-card>
     <ion-item>
       <ion-avatar item-start>
-        <img src="assets/images/avatar.png">
+        <img src="{{objeto_feed.avatar}}">
       </ion-avatar>
-      <h2 class="feed_titulo">{{nomeUsuario}}</h2>
-      <p>November 5, 1955</p>
+      <h2 class="feed_titulo">{{objeto_feed.usuario}}</h2>
+      <p>{{objeto_feed.data}}</p>
     </ion-item>
 
-    <img src="assets/images/advance.png">
+    <img src="{{objeto_feed.imagem}}">
 
     <ion-card-content>
-      <p>Teste de inserção de página</p>
+      <p>{{objeto_feed.descricao}}</p>
     </ion-card-content>
 
     <ion-row>
       <ion-col>
         <button ion-button icon-left clear small>
             <ion-icon name="thumbs-up"></ion-icon>
-            <div>12 Likes</div>
+            <div>{{objeto_feed.quant_likes}} Likes</div>
           </button>
       </ion-col>
       <ion-col>
         <button ion-button icon-left clear small>
             <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
+            <div>{{objeto_feed.quant_comments}} Comments</div>
           </button>
       </ion-col>
       <ion-col center text-center>
         <ion-note>
-          11h ago
+          {{objeto_feed.horario}}
         </ion-note>
       </ion-col>
     </ion-row>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
 
 /**
  * Generated class for the FeedPage page.
@@ -10,18 +10,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-feed',
-  templateUrl: 'feed.html',
+  selector: "page-feed",
+  templateUrl: "feed.html"
 })
 export class FeedPage {
+  public objeto_feed = {
+    titulo: "Feed",
+    usuario: "Henrique Ferraz",
+    data: "November 5, 1955",
+    descricao: "Teste de inserção de página",
+    quant_likes: 33,
+    quant_comments: 4,
+    horario: "11h ago",
+    avatar: "assets/images/avatar.png",
+    imagem: "assets/images/advance.png"
+  };
 
-  public nomeUsuario: string = "Henrique Ferraz";
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FeedPage');
+    console.log("ionViewDidLoad FeedPage");
   }
-
 }
