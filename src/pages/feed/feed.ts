@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 
+import { MoovieProvider } from "../../providers/moovie/moovie";
+
 /**
  * Generated class for the FeedPage page.
  *
@@ -11,7 +13,8 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 @IonicPage()
 @Component({
   selector: "page-feed",
-  templateUrl: "feed.html"
+  templateUrl: "feed.html",
+  providers: [MoovieProvider]
 })
 export class FeedPage {
   public objeto_feed = {
@@ -26,9 +29,20 @@ export class FeedPage {
     imagem: "assets/images/advance.png"
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private MoovieProvider: MoovieProvider
+  ) {}
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad FeedPage");
+    this.MoovieProvider.trazendoMoovies().subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }

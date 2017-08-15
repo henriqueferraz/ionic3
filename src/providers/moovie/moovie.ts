@@ -10,11 +10,14 @@ import "rxjs/add/operator/map";
 */
 @Injectable()
 export class MoovieProvider {
+
+  private baseApi = "https://api.themoviedb.org/3";
+
   constructor(public http: Http) {
     console.log("Hello MoovieProvider Provider");
   }
 
   trazendoMoovies() {
-    return this.http.get("http://;;;;;");
+    return this.http.get(this.baseApi+"/movie/latest?api_key=c6ea5c59e7f60830f9841c1d68e3364e");
   }
 }
