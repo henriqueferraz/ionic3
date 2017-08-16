@@ -32,13 +32,15 @@ export class FeedPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private MoovieProvider: MoovieProvider
+    private moovieProvider: MoovieProvider
   ) {}
 
   ionViewDidLoad() {
-    this.MoovieProvider.trazendoMoovies().subscribe(
+    this.moovieProvider.trazendoMoovies().subscribe(
       data => {
-        console.log(data);
+        const response = (data as any);
+        const objeto_retorno = JSON.parse(response._body);
+        console.log(objeto_retorno);
       },
       error => {
         console.log(error);
