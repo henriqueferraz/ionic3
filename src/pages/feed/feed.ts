@@ -29,6 +29,8 @@ export class FeedPage {
     imagem: "assets/images/advance.png"
   };
 
+  public lista_filmes = new Array<any>();
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -38,8 +40,9 @@ export class FeedPage {
   ionViewDidLoad() {
     this.moovieProvider.trazendoMoovies().subscribe(
       data => {
-        const response = (data as any);
+        const response = data as any;
         const objeto_retorno = JSON.parse(response._body);
+        this.lista_filmes = objeto_retorno.results;
         console.log(objeto_retorno);
       },
       error => {
